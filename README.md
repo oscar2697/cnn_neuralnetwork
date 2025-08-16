@@ -247,11 +247,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Next.js**: React framework for production
 - **Tailwind CSS**: Utility-first CSS framework
 
-## 📞 Contact
-
-- **GitHub**: [@your-username](https://github.com/your-username)
-- **Email**: your.email@example.com
-
 ---
 
 ### 🚀 Ready to classify some sounds? Upload a WAV file and watch the magic happen!
