@@ -12,6 +12,10 @@ A comprehensive audio classification system using Convolutional Neural Networks 
 - **Audio Processing**: Mel-spectrogram transformation and data augmentation
 - **Cloud Deployment**: Modal.com integration for scalable training and inference
 
+## 📈 Diagram
+
+<img width="2127" height="3840" alt="Untitled diagram _ Mermaid Chart-2025-08-16-084325" src="https://github.com/user-attachments/assets/8f25716b-e790-4986-a59d-44f75af594b1" />
+
 ## 🏗️ Architecture
 
 ### Backend (Python)
