@@ -12,7 +12,7 @@ import { ESC50_EMOJI_MAP } from "~/lib/emoji";
 import type { ApiResponse, LayerData, VizualizationData } from "~/lib/types";
 
 const getEmojiForClass = (className: string): string => {
-  return ESC50_EMOJI_MAP[className] || '📢'
+  return ESC50_EMOJI_MAP[className] ?? '📢'
 }
 
 function splitLayers(visualization: VizualizationData) {
@@ -26,7 +26,7 @@ function splitLayers(visualization: VizualizationData) {
       const [parent] = name.split('.')
 
       if (parent === undefined) continue
-      if (!internals[parent]) internals[parent] = []
+      internals[parent] ??= []
 
       internals[parent]?.push([name, data])
     }
@@ -55,7 +55,13 @@ export default function HomePage() {
     reader.readAsArrayBuffer(file)
 
     reader.onload = async () => {
-      const arrayBuffer = reader.result as ArrayBuffer
+      const arrayBuffer = reader.result
+      if (!(arrayBuffer instanceof ArrayBuffer)) {
+        setError('Failed to read file as ArrayBuffer')
+        setIsLoading(false)
+        return
+      }
+
       try {
         const base64String = btoa(new Uint8Array(arrayBuffer).reduce((data, byte) => data + String.fromCharCode(byte), '',))
 
@@ -71,7 +77,7 @@ export default function HomePage() {
           throw new Error(`Api Error ${response.statusText}`)
         }
 
-        const data: ApiResponse = await response.json()
+        const data = await response.json() as ApiResponse
         setVizData(data)
       } catch (error) {
         setError(error instanceof Error ? error.message : 'An unknown error occured.')

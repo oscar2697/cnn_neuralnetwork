@@ -8,9 +8,7 @@ interface LayerData {
     values: number[][]
 }
 
-interface VizualizationData {
-    [layerName: string]: LayerData
-}
+type VizualizationData = Record<string, LayerData>
 
 interface WaveformData {
     values: number[]
