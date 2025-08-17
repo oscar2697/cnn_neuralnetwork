@@ -142,11 +142,10 @@ Input: Mel-Spectrogram (1 x 128 x Time)
 
 ```
 audio_cnn/
-├── 📂 backend/
-│   ├── 📜 train.py          # Training pipeline with Modal
-│   ├── 📜 main.py           # Inference API endpoint
-│   ├── 📜 model.py          # CNN architecture definition
-│   └── 📜 requirements.txt  # Python dependencies
+├── 📜 train.py          # Training pipeline with Modal
+├── 📜 main.py           # Inference API endpoint
+├── 📜 model.py          # CNN architecture definition
+└── 📜 requirements.txt  # Python dependencies
 ├── 📂 frontend/
 │   ├── 📂 src/
 │   │   ├── 📂 app/
